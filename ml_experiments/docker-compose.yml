@@ -1,0 +1,40 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: mlflow-db
+    restart: always
+    environment:
+      POSTGRES_USER: sleep_quality_user
+      POSTGRES_PASSWORD: gormiti4
+      POSTGRES_DB: sleep_quality
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  mlflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.mlflow     # 👈 используем тот, что выше
+    container_name: mlflow-server
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "${MLFLOW_PORT}:${MLFLOW_PORT}"
+    env_file:
+      - .env
+    command: >
+      mlflow server
+      --backend-store-uri ${MLFLOW_BACKEND_URI}
+      --default-artifact-root ${MLFLOW_ARTIFACT_ROOT}
+      --host ${MLFLOW_HOST}
+      --port ${MLFLOW_PORT}
+      --workers ${MLFLOW_WORKERS}
+    volumes:
+      - ../artefacts:/artefacts
+
+volumes:
+  pgdata:

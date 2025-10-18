@@ -1,0 +1,20 @@
+services:
+  api:
+    build:
+      context: ./Fast_Api
+      dockerfile: Dockerfile
+    ports:
+      - "${API_PORT}:${API_PORT}"
+    container_name: fastapi-service
+    env_file:
+      - .env
+
+  bot:
+    build:
+      context: ./tg_bot
+      dockerfile: Dockerfile
+    depends_on:
+      - api
+    env_file:
+      - .env
+    container_name: tg-bot-service
