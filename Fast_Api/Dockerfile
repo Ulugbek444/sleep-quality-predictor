@@ -1,12 +1,18 @@
-# 🐍 Базовый образ Python
 FROM python:3.12-slim
-# 📁 Рабочая директория внутри контейнера
+
 WORKDIR /app
-# 📦 Копируем локальный requirements.txt
+
+# Устанавливаем необходимые системные библиотеки
+RUN apt-get update && apt-get install -y build-essential gcc libpq-dev && rm -rf /var/lib/apt/lists/*
+
+# Копируем requirements.txt
 COPY requirements.txt .
-# 📦 Устанавливаем зависимости
+
+# Устанавливаем Python-зависимости
 RUN pip install --no-cache-dir -r requirements.txt
-# 📁 Копируем всё содержимое Fast_Api
+
+# Копируем весь код FastAPI
 COPY . .
-# 🚀 Запуск FastAPI
+
+# Запуск FastAPI
 CMD ["uvicorn", "run_api:app", "--host", "0.0.0.0", "--port", "8080"]
