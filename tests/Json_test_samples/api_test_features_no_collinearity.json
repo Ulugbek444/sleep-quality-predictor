@@ -1,0 +1,112 @@
+[
+  {
+    "Age": 22.0,
+    "Gender": 1.0,
+    "Sleep_duration": 6.0,
+    "Awakenings": 1.0,
+    "Caffeine_consumption": 0.0,
+    "Alcohol_consumption": 5.0,
+    "Smoking_status": 0.0,
+    "Exercise_frequency": 3.0,
+    "bed_hour": 21.0
+  },
+  {
+    "Age": 52.0,
+    "Gender": 1.0,
+    "Sleep_duration": 6.0,
+    "Awakenings": 1.0,
+    "Caffeine_consumption": 0.0,
+    "Alcohol_consumption": 0.0,
+    "Smoking_status": 0.0,
+    "Exercise_frequency": 2.0,
+    "bed_hour": 0.0
+  },
+  {
+    "Age": 32.0,
+    "Gender": 0.0,
+    "Sleep_duration": 8.0,
+    "Awakenings": 0.0,
+    "Caffeine_consumption": 50.0,
+    "Alcohol_consumption": 0.0,
+    "Smoking_status": 1.0,
+    "Exercise_frequency": 1.0,
+    "bed_hour": 23.0
+  },
+  {
+    "Age": 63.0,
+    "Gender": 0.0,
+    "Sleep_duration": 8.5,
+    "Awakenings": 3.0,
+    "Caffeine_consumption": 50.0,
+    "Alcohol_consumption": 0.0,
+    "Smoking_status": 0.0,
+    "Exercise_frequency": 0.0,
+    "bed_hour": 2.0
+  },
+  {
+    "Age": 48.0,
+    "Gender": 0.0,
+    "Sleep_duration": 7.0,
+    "Awakenings": 0.0,
+    "Caffeine_consumption": 75.0,
+    "Alcohol_consumption": 0.0,
+    "Smoking_status": 0.0,
+    "Exercise_frequency": 4.0,
+    "bed_hour": 22.0
+  },
+  {
+    "Age": 32.0,
+    "Gender": 0.0,
+    "Sleep_duration": 5.0,
+    "Awakenings": 1.0,
+    "Caffeine_consumption": 25.0,
+    "Alcohol_consumption": 1.0,
+    "Smoking_status": 0.0,
+    "Exercise_frequency": 0.0,
+    "bed_hour": 1.5
+  },
+  {
+    "Age": 39.0,
+    "Gender": 0.0,
+    "Sleep_duration": 8.0,
+    "Awakenings": 1.0,
+    "Caffeine_consumption": 50.0,
+    "Alcohol_consumption": 2.0,
+    "Smoking_status": 0.0,
+    "Exercise_frequency": 4.0,
+    "bed_hour": 23.0
+  },
+  {
+    "Age": 41.0,
+    "Gender": 1.0,
+    "Sleep_duration": 6.0,
+    "Awakenings": 2.0,
+    "Caffeine_consumption": 25.0,
+    "Alcohol_consumption": 1.0,
+    "Smoking_status": 0.0,
+    "Exercise_frequency": 1.0,
+    "bed_hour": 1.5
+  },
+  {
+    "Age": 22.0,
+    "Gender": 1.0,
+    "Sleep_duration": 7.0,
+    "Awakenings": 1.0,
+    "Caffeine_consumption": 75.0,
+    "Alcohol_consumption": 1.0,
+    "Smoking_status": 0.0,
+    "Exercise_frequency": 4.0,
+    "bed_hour": 23.0
+  },
+  {
+    "Age": 61.0,
+    "Gender": 1.0,
+    "Sleep_duration": 7.0,
+    "Awakenings": 1.0,
+    "Caffeine_consumption": 0.0,
+    "Alcohol_consumption": 3.0,
+    "Smoking_status": 0.0,
+    "Exercise_frequency": 3.0,
+    "bed_hour": 22.0
+  }
+]

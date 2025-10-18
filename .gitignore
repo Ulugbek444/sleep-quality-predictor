@@ -1,0 +1,42 @@
+# 🧠 Python и системные файлы
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.log
+*.DS_Store
+
+# ⚙️ IDE и редакторы
+.vscode/
+.idea/
+.tg_bot/logs/
+2
+# 🐍 Виртуальное окружение
+**/sleep/
+**/venv/
+**/.env
+
+# 🧪 Тестовые артефакты
+.pytest_cache/
+.artefacts/*
+.claude/
+
+# 📊 Отчёты и графики
+reports/
+reports/figures/conf_matrix/
+reports/figures/prec_recall/
+reports/figures/roc_auc/
+*.png
+*.jpg
+*.svg
+*.pdf
+
+# 🐳 Docker
+**/Dockerfile
+**/docker-compose.yml
+**/Dockerfile.mlflow
+
+# ⚡ Кэш и временные файлы
+*.tmp
+*.bak
+*.swp
