@@ -31,11 +31,6 @@ reports/figures/roc_auc/
 *.svg
 *.pdf
 
-# 🐳 Docker
-**/Dockerfile
-**/docker-compose.yml
-**/Dockerfile.mlflow
-
 # ⚡ Кэш и временные файлы
 *.tmp
 *.bak
