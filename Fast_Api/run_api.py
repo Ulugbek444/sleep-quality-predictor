@@ -4,6 +4,7 @@ import joblib
 import numpy as np
 import os
 import json
+import uvicorn
 model = None  # глобально, но не загружаем сразу
 # === Загрузка модели ===
 
@@ -64,3 +65,8 @@ def predict(data: SleepData):
         "sleep_quality_label": int(y_pred),
         "sleep_quality": ["bad", "good", "medium"][int(y_pred)]
     }
+
+
+if __name__ == "__main__":
+    port = int(os.getenv("API_PORT", 8080))
+    uvicorn.run("run_api:app", host="0.0.0.0", port=port)
