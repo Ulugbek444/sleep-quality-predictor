@@ -1,5 +1,6 @@
 [build]
 builder = "Dockerfile"
+root = "Fast_Api"
 
 [deploy]
 startCommand = "python run_api.py"
