@@ -83,6 +83,9 @@ async def ask_question(user_id: int, bot: Bot):
             user_data.pop(user_id, None)
             return
 
+        label = None
+        label_text = None
+
         try:
             async with ClientSession() as session:
                 async with session.post(FASTAPI_URL, json=payload, timeout=10) as resp:
@@ -121,6 +124,14 @@ async def ask_question(user_id: int, bot: Bot):
             "label": label_text,
             "advice": generate_advice(user_data[user_id]["answers"], label)
         }
+        if label_text is not None and label is not None:
+            user_results[user_id] = {
+                "label": label_text,
+                "advice": generate_advice(user_data[user_id]["answers"], label)
+            }
+        else:
+            user_results.pop(user_id, None)
+
         user_data.pop(user_id, None)
         return
 
