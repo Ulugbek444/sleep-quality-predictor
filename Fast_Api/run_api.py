@@ -49,24 +49,30 @@ def root():
 # === Эндпоинт предсказания ===
 @app.post("/predict")
 def predict(data: SleepData):
-    X = np.array([[getattr(data, field) for field in data.__fields__]])
-    y_pred = model.predict(X)[0]
+    if model is None:
+        raise HTTPException(status_code=503, detail="Model not loaded")
+    try:
+        X = np.array([[getattr(data, field) for field in data.__fields__]])
+        y_pred = model.predict(X)[0]
 
-    if hasattr(model, "predict_proba"):
-        probs = model.predict_proba(X)[0]
-        confidence = float(np.max(probs))
+        if hasattr(model, "predict_proba"):
+            probs = model.predict_proba(X)[0]
+            confidence = float(np.max(probs))
+            return {
+                "sleep_efficiency_label": int(y_pred),
+                "sleep_quality": ["bad", "good", "medium"][int(y_pred)],
+                "confidence": round(confidence, 3)
+            }
+
         return {
-            "sleep_efficiency_label": int(y_pred),
-            "sleep_quality": ["bad", "good", "medium"][int(y_pred)],
-            "confidence": round(confidence, 3)
+            "sleep_quality_label": int(y_pred),
+            "sleep_quality": ["bad", "good", "medium"][int(y_pred)]
         }
-
-    return {
-        "sleep_quality_label": int(y_pred),
-        "sleep_quality": ["bad", "good", "medium"][int(y_pred)]
-    }
+    except Exception as e:
+        print("PREDICT ERROR:", e)
+        raise HTTPException(status_code=400, detail=str(e))
 
 
-if __name__ == "__main__":
-    port = int(os.getenv("API_PORT", 8080))
-    uvicorn.run("run_api:app", host="0.0.0.0", port=port)
+@app.get("/health")
+def health():
+    return {"status": "ok"}
