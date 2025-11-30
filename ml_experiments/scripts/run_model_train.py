@@ -33,10 +33,10 @@ def main():
     #                            oversample=use_oversample)
     # NB = naive_bayes_experiment(x_train, y_train, x_valid, y_valid, x_test, y_test,
     #                             oversample=use_oversample)
-    # xg_model = xgboost_experiment(x_train, y_train, x_valid, y_valid, x_test, y_test,
-    #                               oversample=use_oversample)
-    RF = random_forest_experiment(x_train, y_train, x_valid, y_valid, x_test, y_test,
+    xg_model = xgboost_experiment(x_train, y_train, x_valid, y_valid, x_test, y_test,
                                   oversample=use_oversample)
+    # RF = random_forest_experiment(x_train, y_train, x_valid, y_valid, x_test, y_test,
+    #                               oversample=use_oversample)
 
 
 if __name__ == "__main__":

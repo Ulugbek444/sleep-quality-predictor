@@ -61,7 +61,7 @@ def run_experiment(model_name, model_class, run_name,
         if scaler:
             steps.append(('scaler', StandardScaler()))
 
-        steps.append(('model', model_class(class_weight='balanced')))
+        steps.append(('model', model_class()))
         pipeline = Pipeline(steps)
 
         grid = GridSearchCV(

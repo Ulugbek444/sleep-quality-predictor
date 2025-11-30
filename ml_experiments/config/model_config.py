@@ -25,7 +25,21 @@ RANDOM_FOREST_PARAMS = {
 }
 
 XGBOOST_PARAMS = {
-    "model__n_estimators": [100, 200],
-    "model__max_depth": [3, 6],
-    "model__learning_rate": [0.01, 0.1],
+    # 🔹 Базовые параметры
+    "model__n_estimators": [100, 200, 400],
+    "model__learning_rate": [0.01, 0.05, 0.1],
+    "model__max_depth": [3, 5, 6],
+
+    # 🌳 Параметры структуры деревьев
+    "model__min_child_weight": [1, 3, 5],
+    "model__gamma": [0, 0.1, 0.3],
+
+    # ⚖️ Регуляризация (L1 и L2)
+    "model__reg_alpha": [0, 0.5, 1, 2],   # L1 (Lasso)
+    "model__reg_lambda": [1, 5, 10],      # L2 (Ridge)
+
+    # 🧩 Сэмплирование (устойчивость)
+    "model__subsample": [0.7, 0.8, 1.0],
+    "model__colsample_bytree": [0.7, 0.8, 1.0]
 }
+

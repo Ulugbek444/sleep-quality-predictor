@@ -2,11 +2,10 @@ import pandas as pd
 from xgboost import XGBClassifier
 from ml_experiments.config.model_config import XGBOOST_PARAMS
 from ml_experiments.experiments.base_experiment import run_experiment
-from ml_experiments.config.experiment_config import MLFLOW_MODEL_NAME
+from ml_experiments.config.experiment_config import MLFLOW_MODEL_NAME, RANDOM_STATE
 
 
 def xgboost_experiment(x_tr, y_tr, x_vl, y_vl, x_te, y_te, oversample=False):
-
     oversample_tag = "oversample" if oversample else "no_oversample"
     experiment_configs = [
         {"scaler": False, "mix": False},
@@ -20,7 +19,12 @@ def xgboost_experiment(x_tr, y_tr, x_vl, y_vl, x_te, y_te, oversample=False):
         try:
             final_model, metrics_valid, metrics_test, model_version = run_experiment(
                 model_name="XGB",
-                model_class=lambda: XGBClassifier().set_params(use_label_encoder=False, eval_metric="logloss"),
+                model_class=lambda: XGBClassifier().set_params(
+                    eval_metric="logloss",
+                    objective="multi:softprob",
+                    num_class=3,
+                    random_state=RANDOM_STATE
+                ),
                 run_name=run_name,
                 grid_param=XGBOOST_PARAMS,
                 x_tr=x_tr, y_tr=y_tr,

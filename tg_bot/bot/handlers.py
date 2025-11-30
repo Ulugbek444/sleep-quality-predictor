@@ -50,7 +50,6 @@ async def help_command(message: types.Message):
     await message.answer(text, parse_mode="HTML")
 
 
-
 @router.message(Command("check"))
 async def check_start(message: types.Message):
     user_id = message.from_user.id
